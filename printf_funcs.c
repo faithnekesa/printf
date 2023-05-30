@@ -20,9 +20,8 @@ int printChar(va_list list, int precision_param)
 int printString(va_list list, int precision_param)
 {
 	int Strnlength = 0;
-
 	char *string_ptr = va_arg(list, char *);
-	
+
 	UNUSED(precision_param);
 	if (string_ptr == NULL)
 	{
@@ -46,7 +45,7 @@ return (write(1, string_ptr, Strnlength));
  * Return: The number of chars printed
  */
 
-int printPercent(va_list list,int precision_param)
+int printPercent(va_list list, int precision_param)
 {
 	UNUSED(list);
 	UNUSED(precision_param);
@@ -67,13 +66,13 @@ int printInteger(va_list list, char buffer[], int precision_param, int size)
 	int is_negative = 0;
 	long int numL = va_arg(list, long int);
 	unsigned long int numU;
-	
+
 	numL = convert_size_number(numL, size);
 	if (numL == 0)
-	buffer[buffsize--] = '0';
-	buffer[BUFF_SIZE - 1] = '\0';
-	numU = (unsigned long int)numL;
-	if (numL < 0)
+		buffer[buffsize--] = '0';
+		buffer[BUFF_SIZE - 1] = '\0';
+		numU = (unsigned long int)numL;
+		if (numL < 0)
 		{
 			numU = (unsigned long int)((-1) * numL);
 			is_negative = 1;
@@ -98,9 +97,9 @@ int printInteger(va_list list, char buffer[], int precision_param, int size)
 
 int printBinary(va_list list, char buffer[], int precision_param, int size)
 {
-        unsigned int num1, num2, index, summation;
-        unsigned int numU[32];
-        int count;
+unsigned int num1, num2, index, summation;
+unsigned int numU[32];
+int count;
 	UNUSED(buffer);
 	UNUSED(precision_param);
 	UNUSED(size);
@@ -110,7 +109,7 @@ int printBinary(va_list list, char buffer[], int precision_param, int size)
 	numU[0] = num1 / num2;
 	for (index = 1; index < 32; index++)
 	{
-		num2 =num2 / 2;
+		num2 = num2 / 2;
 		numU[index] = (num1 / num2) % 2;
 	}
 	for (index = 0, summation = 0, count = 0; index < 32; index++)
