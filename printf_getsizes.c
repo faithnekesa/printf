@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * getSize - Gets argument size
+ * get_size - Gets argument size
  * @format: The formatted string to print arguments
  * @argList: Argument list to be printed
  *
  * Return: the precision arguments
  */
 
-int getSize(const char *format, int *argList)
+int get_size(const char *format, int *argList)
 {
 	int this_index = *argList + 1;
 	int count = 0;

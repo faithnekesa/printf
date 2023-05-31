@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * getWidth - Gets the width for printing
+ * get_width - Gets the width for printing
  * @format:String formatted to print arguments
  * @counter: Argument list to be printed
  * @list:Number of charactters printed
@@ -9,7 +9,7 @@
  * Return: the width.
  */
 
-int getWidth(const char *format, int *counter, va_list list)
+int get_width(const char *format, int *counter, va_list list)
 {
 	int this_index;
 	int width = 0;
