@@ -79,7 +79,7 @@ length, padding_char, additional_char));
 */
 
 int write_num(int index, char buffer[],
-	int flags, int width, int prec,
+	int flags, int width, int prec_arg,
 	int length, char padding_char, char additional_char)
 {
 	int counter, padd_start = 1;
@@ -103,13 +103,15 @@ int write_num(int index, char buffer[],
 		{
 			if (additional_char)
 				buffer[--index] = additional_char;
-			return (write(1, &buffer[index], length) + write(1, &buffer[1], counter - 1));
+			return (write(1, &buffer[index], length) +
+					write(1, &buffer[1], counter - 1));
 		}
 		else if (!(flags & F_MINUS_) && padding_char == ' ')
 		{
 			if (additional_char)
 				buffer[--index] = additional_char;
-			return (write(1, &buffer[1], counter - 1) + write(1, &buffer[index], length));
+			return (write(1, &buffer[1], counter - 1) +
+					write(1, &buffer[index], length));
 		}
 		else if (!(flags & F_MINUS_) && padding_char == '0')
 		{
