@@ -84,13 +84,13 @@ int write_num(int index, char buffer[],
 {
 	int counter, padd_start = 1;
 
-	if (prec == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0' && width == 0)
+	if (prec_arg == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0' && width == 0)
 		return (0);
-	if (prec == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0')
+	if (prec_arg == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0')
 		buffer[index] = padding_char = ' ';
-	if (prec > 0 && prec < length)
+	if (prec_arg > 0 && prec_arg < length)
 		padding_char = ' ';
-	while (prec > length)
+	while (prec_arg > length)
 		buffer[--index] = '0', length++;
 	if (additional_char != 0)
 		length++;
